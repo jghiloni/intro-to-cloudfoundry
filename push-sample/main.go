@@ -50,5 +50,5 @@ func main() {
   http.HandleFunc("/", rootHandler)
   http.HandleFunc("/hello", helloHandler)
 
-  http.ListenAndServe(p.IP + ":" + p.Port, nil)
+  http.ListenAndServe(":" + p.Port, nil)
 }
