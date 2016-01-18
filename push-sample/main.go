@@ -47,6 +47,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
   p := loadPage()
 
+  fmt.Printf("%+v\n", p)
+
   http.HandleFunc("/", rootHandler)
   http.HandleFunc("/hello", helloHandler)
 
