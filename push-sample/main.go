@@ -14,7 +14,7 @@ type Page struct {
   Index string
 }
 
-var templates = template.Must(template.ParseGlob("templates/*"))
+var templates = template.Must(template.ParseFiles("templates/hello.html"))
 
 func loadPage() *Page {
   return &Page {
@@ -53,8 +53,8 @@ func main() {
   http.HandleFunc("/", rootHandler)
   http.HandleFunc("/hello", helloHandler)
 
-  err := http.ListenAndServe(":" + p.Port, nil)
-  if err != null {
-    log.Fatal("ListenAndServe: " + err)
+  err := http.ListenAndServe(":" + os.Getenv("PORT"), nil)
+  if err != nil {
+    log.Fatal(err)
   }
 }

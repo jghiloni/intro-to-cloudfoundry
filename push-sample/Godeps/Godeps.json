@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/jghiloni/intro-to-cloudfoundry/push-sample",
+	"ImportPath": "push-sample",
 	"GoVersion": "go1.5.2",
 	"Deps": []
 }
