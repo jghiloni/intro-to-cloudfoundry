@@ -34,6 +34,11 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
   return
 }
 
+func killHandler(w http.ResponseWriter, r *http.Request) {
+  fmt.Println("About to kill this instance")
+  os.Exit(1)
+}
+
 func helloHandler(w http.ResponseWriter, r *http.Request) {
   p := loadPage()
 
@@ -51,6 +56,7 @@ func main() {
   fmt.Printf("%+v\n", p)
 
   http.HandleFunc("/", rootHandler)
+  http.HandleFunc("/kill", killHandler)
   http.HandleFunc("/hello", helloHandler)
 
   err := http.ListenAndServe(":" + os.Getenv("PORT"), nil)
