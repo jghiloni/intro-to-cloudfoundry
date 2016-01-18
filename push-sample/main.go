@@ -1,6 +1,7 @@
 package main
 
 import (
+  "log"
   "fmt"
   "net/http"
   "html/template"
@@ -52,5 +53,8 @@ func main() {
   http.HandleFunc("/", rootHandler)
   http.HandleFunc("/hello", helloHandler)
 
-  http.ListenAndServe(":" + p.Port, nil)
+  err := http.ListenAndServe(":" + p.Port, nil)
+  if err != null {
+    log.Fatal("ListenAndServe: " + err)
+  }
 }
