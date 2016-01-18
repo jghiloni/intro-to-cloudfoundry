@@ -1,7 +1,6 @@
 package main
 
-import
-  "log"
+import (
   "fmt"
   "net/http"
   "html/template"
@@ -48,10 +47,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
   p := loadPage()
 
-  fmt.Printf("Listening on port %s\n", p.Port)
-
   http.HandleFunc("/", rootHandler)
   http.HandleFunc("/hello", helloHandler)
 
-  log.Fatal(http.ListenAndServe(":" + p.Port, nil))
+  http.ListenAndServe(":" + p.Port, nil)
 }
